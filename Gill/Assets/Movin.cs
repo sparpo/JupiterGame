@@ -5,15 +5,17 @@ using System;
 //movin right along
 
 public class Movin : MonoBehaviour {
-    public float moveSpeed;
-    public float jumpHeight;
+    public float moveSpeed = 5f;
+    public float jumpHeight = 10f;
     public bool runAnimate;
     private Rigidbody2D rigidbody;
     public Animator animator;
+    public bool isGrounded = false;
 
     void Start() {
         rigidbody = transform.GetComponent<Rigidbody2D>();
         animator.SetBool("runAnimate", false);
+        jumpHeight = 10f;
     }
 
 
@@ -28,14 +30,17 @@ public class Movin : MonoBehaviour {
         transform.position += movement * Time.deltaTime * moveSpeed;
         
 
-        //animation triggers    -   for whatever reason, 
         if (Input.GetAxis("Horizontal") < -0.1)
         {
             animator.SetBool("runAnimate", true);
+                if (transform.rotation != Quaternion.Euler(0, 180, 0))
+                transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else if (Input.GetAxis("Horizontal") > 0.1)
         {
             animator.SetBool("runAnimate", true);
+            if (transform.rotation != Quaternion.Euler(0, 0, 0))
+                transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else 
                 {
@@ -44,7 +49,10 @@ public class Movin : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump"))
         {
-            rigidbody.AddForce(jumpHeight * Vector2.up, ForceMode2D.Impulse);
+            if (isGrounded)
+            {
+                rigidbody.AddForce(jumpHeight * Vector2.up, ForceMode2D.Impulse);
+            }
         }
     }
 
