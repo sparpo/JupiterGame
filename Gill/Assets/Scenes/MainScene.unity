@@ -1586,7 +1586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpHeight: 100
+  jumpHeight: 10
   runAnimate: 0
   animator: {fileID: 936033980}
 --- !u!212 &936033973
