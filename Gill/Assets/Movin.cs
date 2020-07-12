@@ -57,7 +57,7 @@ public class Movin : MonoBehaviour {
             animator.SetBool("runAnimate", false);
         }
 
-        //Jump with up arrow
+        //Jump with up arrow or W
         if (Input.GetButtonDown("Jump"))
         {
             //Check if player is grounded
@@ -69,6 +69,26 @@ public class Movin : MonoBehaviour {
         }
         else {
                 animator.SetBool("jumpAnimate", false);
+        }
+
+        //Crouch with down arrow or S
+        if (Input.GetButton("Crouch"))
+        {
+            //Check if player is grounded (can't crouch mid air)
+            if (isGrounded)
+            {
+                animator.SetBool("crawlAnimate", true);
+            } 
+        }
+        else {
+                animator.SetBool("crawlAnimate", false);
+        }
+
+        //Attack button
+        if(Input.GetButtonDown("Fire1")) { //left click
+            animator.SetBool("kickAnimate", true);
+        } else {
+            animator.SetBool("kickAnimate", false);
         }
     }
 
