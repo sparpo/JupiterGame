@@ -19,6 +19,7 @@ public class Movin : MonoBehaviour {
         animator.SetBool("jumpAnimate", false);
         animator.SetBool("crawlAnimate", false);
         animator.SetBool("kickAnimate", false);
+        animator.SetBool("sprintAnimate", false);
         jumpHeight = 10f;
         moveSpeed = 5f;
     }
@@ -26,12 +27,13 @@ public class Movin : MonoBehaviour {
 
     void Update() {
 
-        /*
-        if(Input.GetButton("Sprint")) { 
-            moveSpeed = 7f;
+        
+        if(Input.GetButton("Sprint")) {
+
+            animator.SetBool("sprintAnimate", true);
         } else {
-            moveSpeed = 5f;
-        }*/
+            animator.SetBool("sprintAnimate", false);
+        }
 
 
         //Moves with left & right arrow, or A & D
@@ -77,12 +79,11 @@ public class Movin : MonoBehaviour {
             if (isGrounded)
             {
                 animator.SetBool("crawlAnimate", true);
-                moveSpeed = 3f;
             } 
         }
         else {
                 animator.SetBool("crawlAnimate", false);
-                moveSpeed = 5f;
+
         }
 
         //Attack button
