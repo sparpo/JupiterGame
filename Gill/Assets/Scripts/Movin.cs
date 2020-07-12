@@ -10,12 +10,11 @@ public class Movin : MonoBehaviour {
     public float moveSpeed;
     public float jumpHeight;
     public bool runAnimate;
-    private Rigidbody2D rigidbody;
+    public Rigidbody2D rigidbody;
     public Animator animator;
     public bool isGrounded = false;
 
     void Start() {
-        rigidbody = transform.GetComponent<Rigidbody2D>();
         animator.SetBool("runAnimate", false);
         animator.SetBool("jumpAnimate", false);
         animator.SetBool("crawlAnimate", false);
@@ -27,12 +26,12 @@ public class Movin : MonoBehaviour {
 
     void Update() {
 
-        //Sprint with shift
+        /*
         if(Input.GetButton("Sprint")) { 
             moveSpeed = 7f;
         } else {
             moveSpeed = 5f;
-        }
+        }*/
 
 
         //Moves with left & right arrow, or A & D
@@ -78,10 +77,12 @@ public class Movin : MonoBehaviour {
             if (isGrounded)
             {
                 animator.SetBool("crawlAnimate", true);
+                moveSpeed = 3f;
             } 
         }
         else {
                 animator.SetBool("crawlAnimate", false);
+                moveSpeed = 5f;
         }
 
         //Attack button

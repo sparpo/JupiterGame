@@ -5,11 +5,11 @@ using UnityEngine;
 public class Grounded : MonoBehaviour
 {
     public Animator groundAnimator;
-    GameObject Gillbert;
+    public GameObject Gillbert;
     // Start is called before the first frame update
     void Start()
     {
-        Gillbert = gameObject.transform.parent.gameObject;
+        //Gillbert = gameObject.transform.parent.gameObject;
     }
 
     // Update is called once per frame
@@ -21,6 +21,7 @@ public class Grounded : MonoBehaviour
     {
         if (collision.collider.tag == "Ground")
         {
+            groundAnimator.SetBool("grounded", true);
             Gillbert.GetComponent<Movin>().isGrounded = true;
         }
     }
@@ -28,6 +29,7 @@ public class Grounded : MonoBehaviour
     {
         if (collision.collider.tag == "Ground")
         {
+            groundAnimator.SetBool("grounded", false);
             Gillbert.GetComponent<Movin>().isGrounded = false;
         }
     }
