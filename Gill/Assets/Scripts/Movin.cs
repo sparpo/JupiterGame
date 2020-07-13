@@ -27,23 +27,28 @@ public class Movin : MonoBehaviour {
 
     void Update() {
 
-        float h = Input.GetAxis("Horizontal");
+        
 
+        moveSpeed = 5;
+        //Crouch with down arrow or S
+        if (Input.GetButton("Crouch")) {
+            animator.SetBool("crawlAnimate", true);
+            moveSpeed = 2;
+        }
+        else {
+            animator.SetBool("crawlAnimate", false);
+        }
+
+        //sprinting with shift
         if(Input.GetButton("Sprint")) {
-
+            moveSpeed = 7;
             animator.SetBool("sprintAnimate", true);
-        } else {
+        } 
+        else {
             animator.SetBool("sprintAnimate", false);
         }
-
-
-        //Moves with left & right arrow, or A & D
-        Vector3 movement = new Vector3(h, 0f, 0f);
-        //transform.position += movement * Time.deltaTime * moveSpeed;   
-        if(rigidbody.velocity.magnitude < moveSpeed) {
-            rigidbody.AddForce(movement * moveSpeed);
-        }
-        
+        //horizontal movement
+        float h = Input.GetAxis("Horizontal");
         if (h < -0.1)
         {
             animator.SetBool("runAnimate", true);
@@ -60,10 +65,19 @@ public class Movin : MonoBehaviour {
                 {
             animator.SetBool("runAnimate", false);
 
-            //slow down
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x * Time.deltaTime* 0.9f, rigidbody.velocity.y);
-
+            //slow down when not moving
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x * Time.deltaTime* 0.8f, rigidbody.velocity.y);
         }
+
+
+        //Moves with left & right arrow, or A & D
+        Vector3 movement = new Vector3(h, 0f, 0f);
+        //transform.position += movement * Time.deltaTime * moveSpeed;   
+        if(rigidbody.velocity.magnitude < moveSpeed) {//limits max speed
+            rigidbody.AddForce(movement * moveSpeed);
+        }
+        
+
 
         //Jump with up arrow or W
         if (Input.GetButtonDown("Jump"))
@@ -79,19 +93,7 @@ public class Movin : MonoBehaviour {
                 animator.SetBool("jumpAnimate", false);
         }
 
-        //Crouch with down arrow or S
-        if (Input.GetButton("Crouch"))
-        {
-            //Check if player is grounded (can't crouch mid air)
-            if (isGrounded)
-            {
-                animator.SetBool("crawlAnimate", true);
-            } 
-        }
-        else {
-                animator.SetBool("crawlAnimate", false);
 
-        }
 
         //Attack button
         if(Input.GetButtonDown("Fire1")) { //left click
