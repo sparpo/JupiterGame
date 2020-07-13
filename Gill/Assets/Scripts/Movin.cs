@@ -66,7 +66,7 @@ public class Movin : MonoBehaviour {
             animator.SetBool("runAnimate", false);
 
             //slow down when not moving
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x * Time.deltaTime* 0.8f, rigidbody.velocity.y);
+            //rigidbody.velocity = new Vector2(rigidbody.velocity.x * Time.deltaTime* 0.8f, rigidbody.velocity.y);
         }
 
 
