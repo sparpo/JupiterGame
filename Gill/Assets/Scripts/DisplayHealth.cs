@@ -9,6 +9,7 @@ public class DisplayHealth : MonoBehaviour
     public GameObject gillbert;
     private int health;
     public Text healthText;
+    public Slider healthBar;
     void Start()
     {
         health = 100;
@@ -19,5 +20,6 @@ public class DisplayHealth : MonoBehaviour
     {
         health = gillbert.GetComponent<GillbertStats>().getHealth();
         healthText.text = "Health: " + health + "%";
+        healthBar.value = health;
     }
 }
