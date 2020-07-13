@@ -615,7 +615,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.7924528, g: 0.56875706, b: 0.46666667, a: 0}
+  m_BackGroundColor: {r: 0.7830189, g: 0.6688768, b: 0.6862745, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -4550,6 +4550,7 @@ GameObject:
   - component: {fileID: 2057767895}
   - component: {fileID: 2057767894}
   - component: {fileID: 2057767893}
+  - component: {fileID: 2057767898}
   m_Layer: 10
   m_Name: Bad Guy
   m_TagString: Untagged
@@ -4574,7 +4575,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6, y: 0.97}
+    oldSize: {x: 3, y: 3}
     newSize: {x: 0.6, y: 1.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4616,7 +4617,7 @@ MonoBehaviour:
       move: 0
     LoopAudioForDuration: 0
     expanded: 1
-    lastCalculatedHeight: 336
+    lastCalculatedHeight: 76
     useSmartSubs: 0
   OnFailure: 0
   OnSuccess: 0
@@ -4654,7 +4655,7 @@ MonoBehaviour:
       move: 0
     LoopAudioForDuration: 0
     expanded: 1
-    lastCalculatedHeight: 216
+    lastCalculatedHeight: 76
     useSmartSubs: 0
   OnFailure: 4
   OnSuccess: 4
@@ -4703,8 +4704,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 915080811a840b348b822d6ed6184940, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 06bfbfa798597b14184abc5492b697cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4723,13 +4724,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057767892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.69, y: -0.02, z: 1}
-  m_LocalScale: {x: -2, y: 2, z: 1}
+  m_LocalPosition: {x: -16.37, y: 0.26, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 941239284}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2057767898
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057767892}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac5a95c014f636d40bc6a2a1f1e2361e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2104996417
 GameObject:
   m_ObjectHideFlags: 0
