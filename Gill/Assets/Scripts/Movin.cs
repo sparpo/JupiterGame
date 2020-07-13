@@ -27,7 +27,8 @@ public class Movin : MonoBehaviour {
 
     void Update() {
 
-        
+        float h = Input.GetAxis("Horizontal");
+
         if(Input.GetButton("Sprint")) {
 
             animator.SetBool("sprintAnimate", true);
@@ -37,17 +38,19 @@ public class Movin : MonoBehaviour {
 
 
         //Moves with left & right arrow, or A & D
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-        transform.position += movement * Time.deltaTime * moveSpeed;       
-
+        Vector3 movement = new Vector3(h, 0f, 0f);
+        //transform.position += movement * Time.deltaTime * moveSpeed;   
+        if(rigidbody.velocity.magnitude < moveSpeed) {
+            rigidbody.AddForce(movement * moveSpeed);
+        }
         
-        if (Input.GetAxis("Horizontal") < -0.1)
+        if (h < -0.1)
         {
             animator.SetBool("runAnimate", true);
                 if (transform.rotation != Quaternion.Euler(0, 180, 0))
                 transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-        else if (Input.GetAxis("Horizontal") > 0.1)
+        else if (h > 0.1)
         {
             animator.SetBool("runAnimate", true);
             if (transform.rotation != Quaternion.Euler(0, 0, 0))
@@ -56,6 +59,10 @@ public class Movin : MonoBehaviour {
         else 
                 {
             animator.SetBool("runAnimate", false);
+
+            //slow down
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x * Time.deltaTime* 0.9f, rigidbody.velocity.y);
+
         }
 
         //Jump with up arrow or W
