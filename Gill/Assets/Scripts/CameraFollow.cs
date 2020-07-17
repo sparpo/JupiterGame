@@ -3,8 +3,8 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
 	
-	public Transform Player;
-	public float lerpSpeed = 0.1f;
+	private GameObject Player;
+	public float lerpSpeed = 0.3f;
 	public Vector2 shakeOffset;
 	private Vector3 position;
 	private Vector2 shake;
@@ -13,13 +13,17 @@ public class CameraFollow : MonoBehaviour {
 	{
 		position = transform.position;
 		shaking = false;
-		
-		Player = GameObject.Find("Player Physics Parent").transform;
+
+	}
+	void Awake()
+	{		
+		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+		 Player = players[0];
 	}
 	void FixedUpdate()
 	{
 		//Lerp to player's positon
-		position = Vector3.Lerp (position, Player.position, lerpSpeed);
+		position = Vector3.Lerp (position, Player.transform.position, lerpSpeed);
 		
 		transform.position = position;
 		

@@ -7,7 +7,12 @@ using System;
 public class Movin : MonoBehaviour { 
     //just to note, its good to initialize varaibles here but not give them a value. 
     //Set them inside the editor or inside Start()
-    public float moveSpeed;
+    public float maxRunSpeed;
+    public float maxSprintSpeed;
+    public float maxCrawlSpeed;
+    public float acceleration;
+    public float decceleration;
+
     public float jumpHeight;
     public bool runAnimate;
     public Rigidbody2D rigidbody;
@@ -20,8 +25,6 @@ public class Movin : MonoBehaviour {
         animator.SetBool("crawlAnimate", false);
         animator.SetBool("kickAnimate", false);
         animator.SetBool("sprintAnimate", false);
-        jumpHeight = 10f;
-        moveSpeed = 5f;
     }
 
 
@@ -29,11 +32,11 @@ public class Movin : MonoBehaviour {
 
         
 
-        moveSpeed = 5;
+        float speed = maxRunSpeed;
         //Crouch with down arrow or S
         if (Input.GetButton("Crouch")) {
             animator.SetBool("crawlAnimate", true);
-            moveSpeed = 2;
+            speed = maxCrawlSpeed;
         }
         else {
             animator.SetBool("crawlAnimate", false);
@@ -41,7 +44,7 @@ public class Movin : MonoBehaviour {
 
         //sprinting with shift
         if(Input.GetButton("Sprint")) {
-            moveSpeed = 7;
+            speed = maxRunSpeed;
             animator.SetBool("sprintAnimate", true);
         } 
         else {
@@ -66,15 +69,17 @@ public class Movin : MonoBehaviour {
             animator.SetBool("runAnimate", false);
 
             //slow down when not moving
-            //rigidbody.velocity = new Vector2(rigidbody.velocity.x * Time.deltaTime* 0.8f, rigidbody.velocity.y);
+            //rigidbody.velocity = new Vector2(rigidbody.velocity.x * Time.deltaTime* (1/decceleration), rigidbody.velocity.y);
+            //Vector2 v = new Vector2(rigidbody.velocity.x * -decceleration, rigidbody.velocity.y);
+            rigidbody.AddForce(new Vector2(rigidbody.velocity.x * -decceleration, rigidbody.velocity.y));
         }
 
 
         //Moves with left & right arrow, or A & D
-        Vector3 movement = new Vector3(h, 0f, 0f);
+        Vector3 movement = new Vector2(h, 0f);
         //transform.position += movement * Time.deltaTime * moveSpeed;   
-        if(rigidbody.velocity.magnitude < moveSpeed) {//limits max speed
-            rigidbody.AddForce(movement * moveSpeed);
+        if(rigidbody.velocity.magnitude < speed) {//limits max speed
+            rigidbody.AddForce(movement * acceleration);
         }
         
 
