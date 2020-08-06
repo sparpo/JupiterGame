@@ -4550,21 +4550,15 @@ MonoBehaviour:
     singleAudio_MultiSub: 0
     mainAudio: {fileID: 8300000, guid: a4afe5eebc097ca42937568a474995d1, type: 3}
     phrases:
-    - audio: {fileID: 8300000, guid: a4afe5eebc097ca42937568a474995d1, type: 3}
-      text: Stop right there!
-      duration: 2
-      drawAudio: 1
-      lastCalculatedHeight: 120
-      move: 0
-    - audio: {fileID: 8300000, guid: a4afe5eebc097ca42937568a474995d1, type: 3}
-      text: Turn around citizen!
+    - audio: {fileID: 8300000, guid: 576ddec395737b94ea432b8d920d54fc, type: 3}
+      text: You better get runnin' boy!
       duration: 2
       drawAudio: 1
       lastCalculatedHeight: 120
       move: 0
     LoopAudioForDuration: 0
     expanded: 1
-    lastCalculatedHeight: 336
+    lastCalculatedHeight: 216
     useSmartSubs: 0
   OnFailure: 0
   OnSuccess: 0
@@ -4594,8 +4588,8 @@ MonoBehaviour:
     singleAudio_MultiSub: 0
     mainAudio: {fileID: 0}
     phrases:
-    - audio: {fileID: 8300000, guid: a4afe5eebc097ca42937568a474995d1, type: 3}
-      text: THAT'S IT!!!
+    - audio: {fileID: 8300000, guid: 1ccd713ad83f64540a31bcd4a9d4ae03, type: 3}
+      text: WAIT NO NOT THIS WAY!!!
       duration: 2
       drawAudio: 1
       lastCalculatedHeight: 120
@@ -4785,27 +4779,27 @@ MonoBehaviour:
     singleAudio_MultiSub: 0
     mainAudio: {fileID: 0}
     phrases:
-    - audio: {fileID: 8300000, guid: 463acf92e07513e4f8317b23b49c7ce3, type: 3}
-      text: Good day!
+    - audio: {fileID: 8300000, guid: 576ddec395737b94ea432b8d920d54fc, type: 3}
+      text: Hi howsa goin?
       duration: 1
       drawAudio: 1
       lastCalculatedHeight: 120
       move: 0
-    - audio: {fileID: 8300000, guid: 463acf92e07513e4f8317b23b49c7ce3, type: 3}
-      text: Where are you off to?
+    - audio: {fileID: 8300000, guid: 1ccd713ad83f64540a31bcd4a9d4ae03, type: 3}
+      text: Do you have a euro for the bus?
       duration: 1
       drawAudio: 1
       lastCalculatedHeight: 120
       move: 0
-    - audio: {fileID: 8300000, guid: 463acf92e07513e4f8317b23b49c7ce3, type: 3}
-      text: Bye now!
+    - audio: {fileID: 8300000, guid: 90bb2489a6a95d743a4f7e5b64c4a95f, type: 3}
+      text: Watch out for your man over there. Can't trust anyone these days.
       duration: 1
       drawAudio: 1
       lastCalculatedHeight: 120
       move: 0
     LoopAudioForDuration: 0
-    expanded: 0
-    lastCalculatedHeight: 16
+    expanded: 1
+    lastCalculatedHeight: 456
     useSmartSubs: 0
   OnFailure: 4
   OnSuccess: 4
