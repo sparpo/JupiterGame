@@ -1,163 +1,40 @@
-﻿using System.Collections;
+﻿/**
+* This script only handles inputs from user. No physics, animation or event handling
+*
+*
+**/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GillbertController : MonoBehaviour
-{
-   //just to note, its good to initialize varaibles here but not give them a value. 
-    //Set them inside the editor or inside Start()
-
-
-    public float maxRunSpeed;
-    public float maxSprintSpeed;
-    public float maxCrawlSpeed;
-    public float acceleration;
-    public float decceleration;
-
-    public float jumpHeight;
-    public bool runAnimate;
-    public Rigidbody2D rigidbody;
-    public Animator animator;
-    public bool isGrounded = false;
-
-
-    void Start() {
-
-        animator.SetBool("runAnimate", false);
-        animator.SetBool("jumpAnimate", false);
-        animator.SetBool("crawlAnimate", false);
-        animator.SetBool("kickAnimate", false);
-        animator.SetBool("sprintAnimate", false);
-    }
-
-    void Idle() {
-        animator.SetBool("runAnimate", false);
-        animator.SetBool("jumpAnimate", false);
-        animator.SetBool("crawlAnimate", false);
-        animator.SetBool("kickAnimate", false);
-        animator.SetBool("sprintAnimate", false);
-    }
-    void TurnRight() {
-        transform.rotation = Quaternion.Euler(0, 0, 0);
-    }
-    void TurnLeft() {
-        transform.rotation = Quaternion.Euler(0, 180, 0);
-    }
-    void Crouch(int h) {
-        animator.SetBool("crawlAnimate", true);
-            Vector3 movement = new Vector2(h, 0f);
-        if(rigidbody.velocity.magnitude < maxCrawlSpeed) {//limits max speed
-            rigidbody.AddForce(movement * acceleration);
-        }
-    }
-    void Sprint(int h) {
-        animator.SetBool("sprintAnimate", true);
-        Vector3 movement = new Vector2(h, 0f);
-        if(rigidbody.velocity.magnitude < maxSprintSpeed) {//limits max speed
-            rigidbody.AddForce(movement * acceleration);
-        }
-    }
-    
-    void Run(int h) {
-        animator.SetBool("runAnimate", true);
-        Vector3 movement = new Vector2(h, 0f);
-        if(rigidbody.velocity.magnitude < maxRunSpeed) {//limits max speed
-            rigidbody.AddForce(movement * acceleration);
-        }
-    }
-        
-    void Jump() {
-           //Check if player is grounded
-            if (isGrounded)
-            {
-                animator.SetBool("jumpAnimate", true);
-                rigidbody.AddForce(jumpHeight * Vector2.up, ForceMode2D.Impulse);
-            } 
-    }
-    void Kick() {
-           animator.SetBool("kickAnimate", true);
-    }
-
+public class GillbertController : MonoBehaviour {
     void Update() {
 
-        /*
+        float h = Input.GetAxis("Horizontal");
         //Crouch with down arrow or S
         if (Input.GetButton("Crouch")) {
+            //movin.crouch(h)
+        }
 
-        }
-        else {
-            animator.SetBool("crawlAnimate", false);
-        }
 
         //sprinting with shift
         if(Input.GetButton("Sprint")) {
-            
-            animator.SetBool("sprintAnimate", true);
+            //moving.sprint(h)
         } 
-        else {
-            animator.SetBool("sprintAnimate", false);
+       
+        //horizontal movement (a d, <- ->)
+        if(h != 0 ) {
+            //movin.run(h);
         }
-        //horizontal movement
-        float h = Input.GetAxis("Horizontal");
-        if (h < -0.1)
-        {
-            animator.SetBool("runAnimate", true);
-                if (transform.rotation != Quaternion.Euler(0, 180, 0))
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
-        else if (h > 0.1)
-        {
-            animator.SetBool("runAnimate", true);
-            if (transform.rotation != Quaternion.Euler(0, 0, 0))
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        else 
-                {
-            animator.SetBool("runAnimate", false);
-
-            //slow down when not moving
-            //rigidbody.velocity = new Vector2(rigidbody.velocity.x * Time.deltaTime* (1/decceleration), rigidbody.velocity.y);
-            //Vector2 v = new Vector2(rigidbody.velocity.x * -decceleration, rigidbody.velocity.y);
-            rigidbody.AddForce(new Vector2(rigidbody.velocity.x * -decceleration, rigidbody.velocity.y));
-        }
-
-
-        //Moves with left & right arrow, or A & D
-        Vector3 movement = new Vector2(h, 0f);
-        //transform.position += movement * Time.deltaTime * moveSpeed;   
-        if(rigidbody.velocity.magnitude < speed) {//limits max speed
-            rigidbody.AddForce(movement * acceleration);
-        }
-        
-
 
         //Jump with up arrow or W
-        if (Input.GetButtonDown("Jump"))
-        {
-            //Check if player is grounded
-            if (isGrounded)
-            {
-                animator.SetBool("jumpAnimate", true);
-                rigidbody.AddForce(jumpHeight * Vector2.up, ForceMode2D.Impulse);
-            } 
-        }
-        else {
-                animator.SetBool("jumpAnimate", false);
+        if (Input.GetButtonDown("Jump")) {
+            //movin.jump();
         }
 
-
-
-        //Attack button
+        //Attack button (left click)
         if(Input.GetButtonDown("Fire1")) { //left click
-            animator.SetBool("kickAnimate", true);
-        } else {
-            animator.SetBool("kickAnimate", false);
+           //movin.kick();
         }
-        */
-    }
-
-
-  private void FixedUpdate() {
-            rigidbody.AddForce(new Vector2(rigidbody.velocity.x * -decceleration, rigidbody.velocity.y));
     }
 }
