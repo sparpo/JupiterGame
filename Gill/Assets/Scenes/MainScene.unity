@@ -4556,13 +4556,74 @@ PrefabInstance:
     - target: {fileID: 11401396, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: 3873f48034a82e24ea19e6f00e60186e,
+      objectReference: {fileID: 12800000, guid: 90d5ecae52f3378408bfa1c53450b259,
         type: 3}
+    - target: {fileID: 11401396, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401396, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8254717
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401396, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
+      propertyPath: m_Color.g
+      value: 0.98805493
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401396, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 11422524, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: 3873f48034a82e24ea19e6f00e60186e,
         type: 3}
+    - target: {fileID: 11422524, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
+      propertyPath: m_FontData.m_RichText
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422524, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437056, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437056, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437056, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437056, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: db350019d6340454eb13e0b8da345b6e,
+        type: 3}
+    - target: {fileID: 11437056, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437056, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
+      propertyPath: m_Color.a
+      value: 0.9490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449122, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449122, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449122, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9294118
+      objectReference: {fileID: 0}
     - target: {fileID: 11464564, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
       propertyPath: buttonName
       value: Interact
@@ -4585,7 +4646,7 @@ PrefabInstance:
       objectReference: {fileID: 1010498623}
     - target: {fileID: 22447206, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -73.8
+      value: -175
       objectReference: {fileID: 0}
     - target: {fileID: 22447206, guid: 81bc1efb6a09c7a468f85500c18ef233, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5281,17 +5342,22 @@ PrefabInstance:
     - target: {fileID: 438345999505433019, guid: 5f19976e3a47e16438ef98c2db2417fc,
         type: 3}
       propertyPath: decceleration
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 438345999505433019, guid: 5f19976e3a47e16438ef98c2db2417fc,
         type: 3}
       propertyPath: jumpHeight
-      value: 12.6
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 438345999505433021, guid: 5f19976e3a47e16438ef98c2db2417fc,
         type: 3}
       propertyPath: m_Name
       value: Gillbert
+      objectReference: {fileID: 0}
+    - target: {fileID: 438345999505433022, guid: 5f19976e3a47e16438ef98c2db2417fc,
+        type: 3}
+      propertyPath: m_Mass
+      value: 3.5958877
       objectReference: {fileID: 0}
     - target: {fileID: 438345999505433023, guid: 5f19976e3a47e16438ef98c2db2417fc,
         type: 3}

@@ -103,7 +103,7 @@ public class Movin : MonoBehaviour {
         //Attack button
         if(Input.GetButtonDown("Fire1")) { //left click
             animator.SetBool("kickAnimate", true);
-            AudioSource.PlayOneShot(Kick);
+            ///AudioSource.PlayOneShot(Kick);
         } else {
             animator.SetBool("kickAnimate", false);
         }
