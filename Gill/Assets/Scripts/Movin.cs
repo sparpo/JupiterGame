@@ -92,6 +92,7 @@ public class Movin : MonoBehaviour {
             {
                 animator.SetBool("jumpAnimate", true);
                 rigidbody.AddForce(jumpHeight * Vector2.up, ForceMode2D.Impulse);
+                isGrounded=false;
             } 
         }
         else {
